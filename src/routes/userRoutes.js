@@ -13,11 +13,10 @@ const userController = require('../controllers/userController');
 // Quando alguém acessar essa rota, o método getUsers será executado
 // Exemplo de requisição: GET /users
 router.get('/', userController.getUsers);
-
-// Define uma rota POST para "/"
-// Quando alguém enviar dados para essa rota, createUser será executado
-// Exemplo de requisição: POST /users
+router.get('/:id', userController.getUserById);
 router.post('/', userController.createUser);
+router.put('/:id', userController.updateUser);
+router.delete('/:id', userController.deleteUser);
 
 // Exporta o router para ser usado em outro arquivo (normalmente app.js ou server.js)
 module.exports = router;

@@ -1,3 +1,4 @@
+const AppError = require('../utils/AppError');
 // Array que vai armazenar os usuários em memória
 // Cada usuário será um objeto dentro deste array
 let users = [];
@@ -13,13 +14,19 @@ exports.getAll = () => users;
 // Busca um usuário específico pelo ID
 exports.getById = (id) => {
   // Procura no array o primeiro usuário cujo id seja igual ao id informado
-  return users.find(user => user.id === id);
+  const user = users.find(user => user.id === id);
+  if (!user) {
+    throw new AppError("Usuário não encontrado", 404);
+  }
+  return user;
 };
 
 
 // Cria um novo usuário
 exports.create = (data) => {
-
+  if (!data.name || !data.email) {
+    throw new AppError("Name and email are required", 400);
+  }
   // Cria um novo objeto de usuário
   // id: recebe o valor atual do contador
   // ...data: adiciona as propriedades enviadas (nome, email, etc.)
@@ -40,7 +47,9 @@ exports.update = (id, data) => {
   const index = users.findIndex(user => user.id === id);
 
   // Se não encontrar o usuário, retorna null
-  if (index === -1) return null;
+  if (index === -1) {
+    throw new AppError("Usuário não encontrado", 404);
+  }
 
   // Atualiza os dados do usuário
   // Mantém os dados antigos e sobrescreve com os novos
@@ -58,7 +67,9 @@ exports.remove = (id) => {
   const index = users.findIndex(user => user.id === id);
 
   // Se não encontrar, retorna false
-  if (index === -1) return false;
+  if (index === -1) {
+    throw new AppError("Usuário não encontrado", 404);
+  }
 
   // Remove o usuário do array
   users.splice(index, 1);

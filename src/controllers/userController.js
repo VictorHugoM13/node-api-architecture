@@ -25,10 +25,8 @@ exports.getUserById = (req, res) => {
 exports.createUser = (req, res) => {
   const { name, email } = req.body;
 
-  if (!name || !email) {
-    return response.error(res, "Nome e email obrigatórios", 400);
-  }
-
+  if (!name || !email) return response.error(res, "Nome e email obrigatórios", 400);
+  
   const newUser = userService.create({ name, email });
 
   response.success(res, newUser, 201);

@@ -1,5 +1,8 @@
 // Importa o framework Express
+require('dotenv').config();
 const express = require('express');
+const config = require('./config/serverConfig');
+
 
 // Cria a aplicação
 const app = express();
@@ -29,6 +32,7 @@ app.use(require('./middlewares/errorMiddleware'));
 
 
 // Inicia o servidor
-app.listen(3000, () => {
-  console.log('Servidor rodando na porta 3000');
+
+app.listen(config.port, () => {
+  console.log(`Servidor rodando na porta ${config.port}`);
 });

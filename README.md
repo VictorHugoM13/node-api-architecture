@@ -18,20 +18,34 @@ O projeto foi criado com o objetivo de demonstrar uma **arquitetura organizada d
 # Estrutura do projeto
 
 ```
-src
- ├── controllers
- │    └── userController.js
- │
- ├── routes
- │    └── userRoutes.js
- │
- ├── services
- │    └── userService.js
- │
- ├── utils
- │    └── responseHandler.js
- │
- └── server.js
+node-api-architecture
+│
+├── examples
+│   ├── callBacks.js
+│   └── promises.js
+│
+├── node_modules
+│
+├── src
+│   ├── controllers
+│   │   └── userController.js
+│   │
+│   ├── middlewares
+│   │   └── errorMiddleware.js
+│   │
+│   ├── routes
+│   │   └── userRoutes.js
+│   │
+│   ├── services
+│   │   └── userService.js
+│   │
+│   ├── utils
+│   │   └── responseHandler.js
+│   │
+│   └── server.js
+│
+├── package.json
+└── package-lock.json
 ```
 
 ### Descrição das pastas

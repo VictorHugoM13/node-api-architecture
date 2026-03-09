@@ -25,6 +25,8 @@ app.use((req, res, next) => {
 // Tudo que começar com /users será enviado para userRoutes
 app.use('/users', userRoutes);
 
+app.use(require('./middlewares/errorMiddleware'));
+
 
 // Inicia o servidor
 app.listen(3000, () => {

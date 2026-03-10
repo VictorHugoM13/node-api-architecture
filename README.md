@@ -19,14 +19,12 @@ O projeto foi criado com o objetivo de demonstrar uma **arquitetura organizada d
 
 ```
 node-api-architecture
-│
 ├── examples
-│   ├── callBacks.js
-│   └── promises.js
-│
 ├── node_modules
-│
 ├── src
+│   ├── config
+│   │   └── serverConfig.js
+│   │
 │   ├── controllers
 │   │   └── userController.js
 │   │
@@ -40,12 +38,15 @@ node-api-architecture
 │   │   └── userService.js
 │   │
 │   ├── utils
+│   │   ├── AppError.js
 │   │   └── responseHandler.js
 │   │
 │   └── server.js
 │
+├── .env
 ├── package.json
-└── package-lock.json
+├── package-lock.json
+└── README.md
 ```
 
 ### Descrição das pastas

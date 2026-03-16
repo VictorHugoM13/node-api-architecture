@@ -4,11 +4,16 @@ CREATE TABLE users (
   email TEXT NOT NULL
 );
 
-INSERT INTO users (name, email)
-VALUES ('Victor', 'victor@email.com');
+CREATE TABLE posts (
+  id INTEGER PRIMARY KEY,
+  title TEXT NOT NULL,
+  content TEXT,
+  user_id INTEGER,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
 
-INSERT INTO users (name, email)
-VALUES ('Ana', 'ana@email.com');
+
+
 
 
 
